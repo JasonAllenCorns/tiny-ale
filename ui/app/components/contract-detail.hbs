@@ -1,20 +1,32 @@
 <hr>
-<dl class="summary">
-  <dt>Status</dt>
-  <dd>{{contract.attributes.status}}</dd>
-  <dt>Facilitator</dt>
-  <dd>{{full-name facilitator "first-last"}}</dd>
-  <dt>Category</dt>
-  <dd>{{category.attributes.name}}</dd>
-  <dt>Credits</dt>
-  <dd class="credit-assignments">
+
+<t-tiles>
+  <t-tiles:tile>
+    <h3>Status</h3>
+    <p>{{contract.attributes.status}}</p>
+  </t-tiles:tile>
+  <t-tiles:tile>
+    <h3>Facilitator</h3>
+    <p>{{full-name facilitator "first-last"}}</p>
+  </t-tiles:tile>
+  <t-tiles:tile>
+    <h3>Category</h3>
+    <p>{{category.attributes.name}}</p>
+  </t-tiles:tile>
+  <t-tiles:tile>
+    <h3>Credits</h3>
     {{credit-assignments creditAssignments=creditAssignments}}
-  </dd>
-  <dt>Term</dt>
-  <dd>{{term.attributes.name}}</dd>
-  <dt>Location</dt>
-  <dd>{{contract.attributes.location}}</dd>
-</dl>
+  </t-tiles:tile>
+  <t-tiles:tile>
+    <h3>Term</h3>
+    <p>{{term.attributes.name}}</p>
+  </t-tiles:tile>
+  <t-tiles:tile>
+    <h3>Location</h3>
+    <p>{{contract.attributes.location}}</p>
+  </t-tiles:tile>
+</t-tiles>
+
 <hr>
 
 <h2>Details</h2>
