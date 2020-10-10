@@ -1,4 +1,4 @@
-class CompetenciesController < ApiBaseController
+class LearningRequirementsController < ApiBaseController
   def categories
     render json: Ealr.categories
   end
@@ -9,6 +9,6 @@ class CompetenciesController < ApiBaseController
       .sort
     count = Ealr.count
     options = { meta: { count: count } }
-    render json: CompetencySerializer.new(result, options), status: 200
+    render json: LearningRequirementSerializer.new(result, options), status: 200
   end
 end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Competencies API', type: :request do
+RSpec.describe 'Learning requirements API', type: :request do
   before(:each) do
     cat = Ealr.categories.first
     %w{1.1 1.2}.each do |seq|
@@ -10,9 +10,9 @@ RSpec.describe 'Competencies API', type: :request do
     end
   end
 
-  describe 'GET /api/competencies' do
-    it 'returns all competencies' do
-      get '/api/competencies'
+  describe 'GET /api/learning-requirements' do
+    it 'returns all learning-requirements' do
+      get '/api/learning-requirements'
       expect(response).to have_http_status(200)
       expect(json).not_to be_empty
       length = Ealr.count
@@ -21,9 +21,9 @@ RSpec.describe 'Competencies API', type: :request do
     end
   end
 
-  describe 'GET /api/competencies/categories' do
+  describe 'GET /api/learning-requirements/categories' do
     it 'returns a 200 with successful get' do
-      get "/api/competencies/categories", headers: json_request_headers
+      get "/api/learning-requirements/categories", headers: json_request_headers
 
       expect(response).to have_http_status(200)
       expect(json).not_to be_empty
@@ -31,7 +31,7 @@ RSpec.describe 'Competencies API', type: :request do
     end
   end
 
-  describe 'POST /api/admin/competencies' do
+  describe 'POST /api/admin/learning-requirements' do
     before do
       @category = Ealr.categories.last
     end
@@ -51,7 +51,7 @@ RSpec.describe 'Competencies API', type: :request do
         }
       }
 
-      post "/api/admin/competencies", params: body.to_json, headers: json_request_headers
+      post "/api/admin/learning-requirements", params: body.to_json, headers: json_request_headers
 
       expect(response).to have_http_status(200)
       expect(json).not_to be_empty
@@ -75,7 +75,7 @@ RSpec.describe 'Competencies API', type: :request do
         }
       }
 
-      put "/api/admin/competencies/#{ealr.id}", params: body.to_json, headers: json_request_headers
+      put "/api/admin/learning-requirements/#{ealr.id}", params: body.to_json, headers: json_request_headers
 
       expect(response).to have_http_status(200)
       expect(json).not_to be_empty
@@ -94,7 +94,7 @@ RSpec.describe 'Competencies API', type: :request do
       count = Ealr.count
       ealr = Ealr.first
   
-      delete "/api/admin/competencies/#{ealr.id}", headers: json_request_headers
+      delete "/api/admin/learning-requirements/#{ealr.id}", headers: json_request_headers
   
       expect(response).to have_http_status(204)
       expect(body).to be_empty

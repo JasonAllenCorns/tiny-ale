@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ContractsController < ApiBaseController
-  PERMITTED_INCLUDES = %w[category facilitator assignments meetings credit_assignments credit_assignments.credit term ealrs].freeze
+  PERMITTED_INCLUDES = %w[category facilitator assignments meetings credit_assignments credit_assignments.credit term learning_requirements].freeze
 
   def index
     limit = params[:limit] || Rails.configuration.constants[:DEFAULT_LIMIT]

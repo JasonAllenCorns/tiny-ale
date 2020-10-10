@@ -23,5 +23,5 @@ class ContractSerializer < ApplicationSerializer
   has_many :credit_assignments
   has_many :meetings
 
-  has_many :ealrs, serializer: 'Competency'
+  has_many :learning_requirements, record_type: :ealr, serializer: 'LearningRequirement'
 end
