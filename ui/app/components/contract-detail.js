@@ -10,6 +10,7 @@ export default Component.extend(ContractRelations, {
 
   detailSections: computed('contract', function () {
     const { contract } = this;
+
     return ['learningObjectives', 'competencies', 'evaluationMethods', 'instructionalMaterials']
       .map(section => ({
         name: section,

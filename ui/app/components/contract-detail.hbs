@@ -1,33 +1,29 @@
-<hr>
-
-<t-tiles>
-  <t-tiles:tile>
+<TTiles>
+  <TTiles::Tile>
     <h3>Status</h3>
     <p>{{contract.attributes.status}}</p>
-  </t-tiles:tile>
-  <t-tiles:tile>
+  </TTiles::Tile>
+  <TTiles::Tile>
     <h3>Facilitator</h3>
     <p>{{full-name facilitator "first-last"}}</p>
-  </t-tiles:tile>
-  <t-tiles:tile>
+  </TTiles::Tile>
+  <TTiles::Tile>
     <h3>Category</h3>
     <p>{{category.attributes.name}}</p>
-  </t-tiles:tile>
-  <t-tiles:tile>
-    <h3>Credits</h3>
-    {{credit-assignments creditAssignments=creditAssignments}}
-  </t-tiles:tile>
-  <t-tiles:tile>
+  </TTiles::Tile>
+  <TTiles::Tile>
     <h3>Term</h3>
     <p>{{term.attributes.name}}</p>
-  </t-tiles:tile>
-  <t-tiles:tile>
+  </TTiles::Tile>
+  <TTiles::Tile>
     <h3>Location</h3>
     <p>{{contract.attributes.location}}</p>
-  </t-tiles:tile>
-</t-tiles>
+  </TTiles::Tile>
+</TTiles>
 
-<hr>
+<h2>Credits</h2>
+
+{{credit-assignments creditAssignments=creditAssignments}}
 
 <h2>Details</h2>
 

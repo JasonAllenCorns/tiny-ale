@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
     get '/contracts', to: 'contracts#index'
     get '/contracts/:id', to: 'contracts#show'
+    post '/contracts', to: 'contracts#create'
+    put '/contracts/:id', to: 'contracts#update'
+    delete '/contracts/:id', to: 'contracts#destroy'
 
     get '/meetings', to: 'meetings#index'
     get '/meetings/:id', to: 'meetings#show'

@@ -1,35 +1,37 @@
-var VALID_DEPLOY_TARGETS = [
+'use strict';
+
+const VALID_DEPLOY_TARGETS = [
   'shiny',
   'nova',
 ];
 
-module.exports = function(deployTarget) {
-  var ENV = {
+module.exports = function (deployTarget) {
+  const ENV = {
     build: {},
     s3: {
-      prefix: 'tinysis-ui'
-    }
+      prefix: 'tinysis-ui',
+    },
   };
 
   if (VALID_DEPLOY_TARGETS.indexOf(deployTarget) === -1) {
-    throw new Error('Invalid deployTarget ' + deployTarget);
+    throw new Error(`Invalid deployTarget ${deployTarget}`);
   }
 
   if (deployTarget === 'shiny') {
     ENV.build.environment = 'development';
     ENV.pipeline = {
       disabled: {
-        allExcept: ['redis']
-      }
-    }
+        allExcept: ['redis'],
+      },
+    };
   }
 
   if (deployTarget === 'qa' || deployTarget === 'prod') {
     ENV.build.environment = 'production';
     ENV.s3.accessKeyId = process.env.AWS_KEY;
     ENV.s3.secretAccessKey = process.env.AWS_SECRET;
-    ENV.s3.bucket = /* YOUR S3 BUCKET NAME */;
-    ENV.s3.region = /* YOUR S3 REGION */;
+    // ENV.s3.bucket = /* YOUR S3 BUCKET NAME */;
+    // ENV.s3.region = /* YOUR S3 REGION */;
   }
 
   if (deployTarget === 'qa') {
@@ -61,4 +63,4 @@ module.exports = function(deployTarget) {
    *    });
    *
    */
-}
+};
