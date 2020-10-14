@@ -394,6 +394,10 @@ class Contract < ApplicationRecord
     self.contract_status ||= Contract::STATUS_PROPOSED
   end
 
+  def learning_requirements
+    ealrs
+  end
+
   def learning_requirement_ids
     ealrs.map(&:id)
   end

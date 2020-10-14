@@ -4,5 +4,5 @@ class ContractEalr < ApplicationRecord
   self.table_name = 'contract_ealrs'
 
   belongs_to :contract
-  belongs_to :ealr
+  belongs_to :learning_requirement, class_name: 'Ealr'
 end
